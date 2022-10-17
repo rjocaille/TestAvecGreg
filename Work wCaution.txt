@@ -1,0 +1,39 @@
+
+Ecran "Gestion des cautions"
+----------------------------
+F_Cautions
+	
+	- Bouton import de demandes: Import de demandes venant de CAU_demande dans CAU_Caution
+		Le champ HISTO_CODE est copié entre autres.
+	- Lorsque l'on fait un insert dans CAU_demande, on historise le CPT_CAUTION de CAU_Caution dans CAU_HISTOLIBESTIM 
+	- On peut consulter l'historique d'un CAU_Caution.CPT_CAUTION par le bouton Histo Lib Estim
+	- On peut afficher le rapport de constat d'achèvement en lien avec un CAU_Caution.CPT_CAUTION
+	
+Ecran "Encodage d'une demande de garantie bancaire"
+---------------------------------------------------
+F_Demande
+
+	- L'écran s'alimente dans la table CAU_Demande.
+	
+	- HISTO_CODE est référencé dans la grille mais est caché.
+	- On se sert du HISTO_CODE pour filtrer la liste des notaires (repris dans vselgrouHistRess join à vselRessHisto)
+	
+Ecran de recherche "Importation des demandes de cautions"
+---------------------------------------------------------
+F_importDem
+
+	- L'écran s'alimente dans la table CAU_Demande.
+	
+	- HISTO_CODE est référencé dans la grille mais est caché.
+	- HISTO_CODE est renvoyé dans les résultats de recherche comme les autres champs de la table CAU_Demande
+
+Ecran d'export "Sélection des demandes à envoyer"
+-------------------------------------------------
+F_SelDemande
+
+	- L'écran s'alimente dans la table CAU_Caution.
+	
+	- HISTO_CODE est référencé dans la grille mais est caché.
+	- CPT_CAUTION est affiché dans la grille
+	- On se sert de l'HISTO_CODE pour rechercher les informations concernant le notaire au moment de valider la sélection.
+	- Lors de la validation d'une sélection, on fait une mise à jour du champ NUM_EXPORT dans la table CAU_CAUTION par la clé primaire CPT_CAUTION
